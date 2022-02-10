@@ -1,6 +1,6 @@
-//-----(Doge Bot by Xeon Bot Inc.)-----\\
-//-----(Youtube Channel: Xeon)-----\\
-//-----(Whatsapp number: +916909137213)-----\\
+//-----(Kuhuri Bot by Brutal Bot Inc.)-----\\
+//-----(Youtube Channel: XTG-BRUTAL)-----\\
+//-----(Whatsapp number: +919101765679)-----\\
 //-----(Wanna reupload??? Can, but give proper credit)----\\
 
 const
