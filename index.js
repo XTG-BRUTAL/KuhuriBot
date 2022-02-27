@@ -130,9 +130,9 @@ var tampilUcapan = '' + waktoonyabro;
 //nocache
 require('./XeonDoge.js')
 
-const starts = async (dogexeon = new WAConnection()) => {
-	dogexeon.logger.level = 'warn'
-	dogexeon.version = [2, 2149, 4]
+const starts = async (dogebrutal = new WAConnection()) => {
+	dogebrutal.logger.level = 'warn'
+	dogebrutal.version = [2, 2149, 4]
 	console.log(color(`\x1b[1;37m> ${tampilUcapan}\n`,'cyan'))
 	console.log(color(figlet.textSync('Doge Bot', {
 		font: 'Standard',
@@ -141,35 +141,35 @@ const starts = async (dogexeon = new WAConnection()) => {
 		width: 80,
 		whitespaceBreak: false
 	}), 'cyan'))
-	console.log(color('\n> YT CHANNEL: Xeon ','silver'))
-console.log(color('> GITHUB: DGXeon ','silver'))
-console.log(color('> WA NUMBER: +916909137213 ','silver'))
-console.log(color('  Xeon Bot Inc. 2021','mediumseagreen'))
-	dogexeon.browserDescription = [ 'Subscribe Xeon', 'ubuntu', '3.0' ]
+	console.log(color('\n> YT CHANNEL: brutal ','silver'))
+console.log(color('> GITHUB: DGbrutal ','silver'))
+console.log(color('> WA NUMBER: +919101765679 ','silver'))
+console.log(color('  brutal Bot Inc. 2021','mediumseagreen'))
+	dogebrutal.browserDescription = [ 'Subscribe brutal', 'ubuntu', '3.0' ]
 
-	dogexeon.on('qr', () => {
+	dogebrutal.on('qr', () => {
 	console.log(color('[','white'), color('!','red'), color(']','white'), color('SCAN THE QR'))
 })
-	dogexeon.on('credentials-updated', () => {
-		fs.writeFileSync('./session.json', JSON.stringify(dogexeon.base64EncodedAuthInfo(), null, '\t'))
+	dogebrutal.on('credentials-updated', () => {
+		fs.writeFileSync('./session.json', JSON.stringify(dogebrutal.base64EncodedAuthInfo(), null, '\t'))
 		info('2', 'Doge Bot Loading...')
 	})
-	fs.existsSync('./session.json') && dogexeon.loadAuthInfo('./session.json')
-	dogexeon.on('connecting', () => {
+	fs.existsSync('./session.json') && dogebrutal.loadAuthInfo('./session.json')
+	dogebrutal.on('connecting', () => {
 		start('2', 'CONNECT')
 	})
-	dogexeon.on('open', () => {
+	dogebrutal.on('open', () => {
 		success('2', 'Connected')
 	})
     
 	// session
-	await dogexeon.connect({
+	await dogebrutal.connect({
 		timeoutMs: 30 * 1000
 	})
-	fs.writeFileSync(`./session.json`, JSON.stringify(dogexeon.base64EncodedAuthInfo(), null, '\t'))
+	fs.writeFileSync(`./session.json`, JSON.stringify(dogebrutal.base64EncodedAuthInfo(), null, '\t'))
 
 	// Baterai
-	dogexeon.on('CB:action,,battery', json => {
+	dogebrutal.on('CB:action,,battery', json => {
 		global.batteryLevelStr = json[2][0][1].value
 		global.batterylevel = parseInt(batteryLevelStr)
 		baterai = batterylevel
@@ -179,7 +179,7 @@ console.log(color('  Xeon Bot Inc. 2021','mediumseagreen'))
 		console.log('Baterai : ' + batterylevel + '%')
 	})
 	global.batrei = global.batrei ? global.batrei : []
-	dogexeon.on('CB:action,,battery', json => {
+	dogebrutal.on('CB:action,,battery', json => {
 		const batteryLevelStr = json[2][0][1].value
 		const batterylevel = parseInt(batteryLevelStr)
 		global.batrei.push(batterylevel)
@@ -188,7 +188,7 @@ console.log(color('  Xeon Bot Inc. 2021','mediumseagreen'))
 	// Send Message
 const sendButImage = async (id, text1, desc1, gam1, but = [], options = {}) => {
       kma = gam1;
-      mhan = await dogexeon.prepareMessage(id, kma, MessageType.image);
+      mhan = await dogebrutal.prepareMessage(id, kma, MessageType.image);
        buttonMessages = {
         imageMessage: mhan.message.imageMessage,
         contentText: text1,
@@ -196,11 +196,11 @@ const sendButImage = async (id, text1, desc1, gam1, but = [], options = {}) => {
         buttons: but,
         headerType: 4,
       }
-      dogexeon.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+      dogebrutal.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
     }
 const sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
-mhan = await dogexeon.prepareMessage(id, kma, location)
+mhan = await dogebrutal.prepareMessage(id, kma, location)
 const buttonMessages = {
 locationMessage: mhan.message.locationMessage,
 contentText: text1,
@@ -208,24 +208,24 @@ footerText: desc1,
 buttons: but,
 headerType: 6
 }
-dogexeon.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+dogebrutal.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
    // owner
 
 
-    const htod = "916909137213@s.whatsapp.net"
+    const htod = "919101765679@s.whatsapp.net"
 
     
 
-dogexeon.on("group-update", async (anu) => {
+dogebrutal.on("group-update", async (anu) => {
 
-    metdata = await dogexeon.groupMetadata(anu.jid);
+    metdata = await dogebrutal.groupMetadata(anu.jid);
 
     if (anu.announce == "false") {
 
       teks = `- [ Group Opened ] -\n\n_The group has been opened by admin_\n_Now all members can send messages_`;
 
-      dogexeon.sendMessage(metdata.id, teks, MessageType.text);
+      dogebrutal.sendMessage(metdata.id, teks, MessageType.text);
 
       console.log(`- [ Group Opened ] - In ${metdata.subject}`);
 
@@ -233,7 +233,7 @@ dogexeon.on("group-update", async (anu) => {
 
       teks = `- [ Group Closed ] -\n\n_The group has been closed by admin_\n_Now only admins can send messages_`;
 
-      dogexeon.sendMessage(metdata.id, teks, MessageType.text);
+      dogebrutal.sendMessage(metdata.id, teks, MessageType.text);
 
       console.log(`- [ Group Closed ] - In ${metdata.subject}`);
 
@@ -247,7 +247,7 @@ dogexeon.on("group-update", async (anu) => {
 
       }\nNew Description : ${anu.desc}`;
 
-      dogexeon.sendMessage(metdata.id, teks, MessageType.text, {
+      dogebrutal.sendMessage(metdata.id, teks, MessageType.text, {
 
         contextInfo: { mentionedJid: [tag] },
 
@@ -259,7 +259,7 @@ dogexeon.on("group-update", async (anu) => {
 
       teks = `- [ Group Setting Change ] -\n\nEdit Group info has been opened for members\nNow all members can edit this group info`;
 
-      dogexeon.sendMessage(metdata.id, teks, MessageType.text);
+      dogebrutal.sendMessage(metdata.id, teks, MessageType.text);
 
       console.log(`- [ Group Setting Change ] - In ${metdata.subject}`);
 
@@ -267,7 +267,7 @@ dogexeon.on("group-update", async (anu) => {
 
       teks = `- [ Group Setting Change ] -\n\nEdit Group info has been closed for members\nNow only group admin can edit this group info`;
 
-      dogexeon.sendMessage(metdata.id, teks, MessageType.text);
+      dogebrutal.sendMessage(metdata.id, teks, MessageType.text);
 
       console.log(`- [ Group Setting Change ] - In ${metdata.subject}`);
 
@@ -275,11 +275,11 @@ dogexeon.on("group-update", async (anu) => {
 
   });
 
-dogexeon.on('group-participants-update', async (anu) => {
+dogebrutal.on('group-participants-update', async (anu) => {
 
 	try {
 
-		mdata = await dogexeon.groupMetadata(anu.jid)
+		mdata = await dogebrutal.groupMetadata(anu.jid)
 
 		console.log(anu)
 
@@ -287,13 +287,13 @@ dogexeon.on('group-participants-update', async (anu) => {
 
              const memeg = mdata.participants.length
              
-             const thu = await dogexeon.getStatus(anu.participants[0], MessageType.text)
+             const thu = await dogebrutal.getStatus(anu.participants[0], MessageType.text)
 
 			num = anu.participants[0]
 
 			try {
 
-				ppUrl = await dogexeon.getProfilePicture(num)
+				ppUrl = await dogebrutal.getProfilePicture(num)
 
 				} catch {
 
@@ -315,7 +315,7 @@ dogexeon.on('group-participants-update', async (anu) => {
 
 			try {
 
-				ppUrl = await dogexeon.getProfilePicture(num)
+				ppUrl = await dogebrutal.getProfilePicture(num)
 
 				} catch {
 
@@ -327,7 +327,7 @@ dogexeon.on('group-participants-update', async (anu) => {
 
 				teks = `*Gᴏᴏᴅ Bʏᴇ* 👋\n@${num.split('@')[0]}\n*𝙷𝚘𝚙𝚎𝚏𝚞𝚕𝚕𝚢 𝚃𝚑𝚎𝚛𝚎 𝚆𝚘𝚗𝚝 𝙱𝚎 𝙱𝚞𝚛𝚍𝚎𝚗 𝙷𝚎𝚛𝚎 𝙰𝚗𝚢𝚖𝚘𝚛𝚎* 🐶`
 
-				sendButImage(anu.jid, teks, `𝐃𝐨𝐠𝐞 𝐁𝐨𝐭`, img,but = [{buttonId: `Hello World!`, buttonText: {displayText: `GOODBYE !!`}, type: 1}], options = {contextInfo: {mentionedJid: [num, htod]}})
+				sendButImage(anu.jid, teks, `Kuhuri Bot`, img,but = [{buttonId: `Hello World!`, buttonText: {displayText: `GOODBYE !!`}, type: 1}], options = {contextInfo: {mentionedJid: [num, htod]}})
 
 			} else if (anu.action == 'promote') {
 
@@ -335,7 +335,7 @@ dogexeon.on('group-participants-update', async (anu) => {
 
 			try {
 
-				ppUrl = await dogexeon.getProfilePicture(num)
+				ppUrl = await dogebrutal.getProfilePicture(num)
 
 				} catch {
 
@@ -355,7 +355,7 @@ dogexeon.on('group-participants-update', async (anu) => {
 
 			try {
 
-				ppUrl = await dogexeon.getProfilePicture(num)
+				ppUrl = await dogebrutal.getProfilePicture(num)
 
 				} catch {
 
@@ -379,18 +379,18 @@ dogexeon.on('group-participants-update', async (anu) => {
 
 		})
 		
-dogexeon.on('group-update', async (anu) => {
+dogebrutal.on('group-update', async (anu) => {
 	try { 
 	console.log(anu)
 	from = anu.jid
-	group = await dogexeon.groupMetadata(anu.jid)
+	group = await dogebrutal.groupMetadata(anu.jid)
 	if (!anu.desc == '') {
 		tag = anu.descOwner.replace('@c.us', '@s.whatsapp.net')
-		dogexeon.sendMessage(group.id, `Group Description Change\n\n• Admin : @${tag.split("@")[0]}\n• Group : ${group.subject}\n• descTime : ${anu.descTime}\n• descID : ${anu.descId}\n• descNew : ${anu.desc}`, MessageType.text, {contextInfo: { mentionedJid: [tag]}})
+		dogebrutal.sendMessage(group.id, `Group Description Change\n\n• Admin : @${tag.split("@")[0]}\n• Group : ${group.subject}\n• descTime : ${anu.descTime}\n• descID : ${anu.descId}\n• descNew : ${anu.desc}`, MessageType.text, {contextInfo: { mentionedJid: [tag]}})
 		} else if (!anu.restrict == '') {
-			dogexeon.sendMessage(group.id, `Group Restrict Change\n\n• Group : ${group.subject}\n• groupId : ${anu.jid}\n• restrict : ${anu.restrict}`, MessageType.text)
+			dogebrutal.sendMessage(group.id, `Group Restrict Change\n\n• Group : ${group.subject}\n• groupId : ${anu.jid}\n• restrict : ${anu.restrict}`, MessageType.text)
 			} else if (!anu.announce == '') {
-				dogexeon.sendMessage(group.id, `Group Announce Change\n\n• Group : ${group.subject}\n• groupId : ${anu.jid}\n• announce : ${anu.announce}`, MessageType.text)
+				dogebrutal.sendMessage(group.id, `Group Announce Change\n\n• Group : ${group.subject}\n• groupId : ${anu.jid}\n• announce : ${anu.announce}`, MessageType.text)
 				} 
 					} catch(err) {
 						e = String(err)
@@ -398,10 +398,10 @@ dogexeon.on('group-update', async (anu) => {
 						}
 
 	})
-    dogexeon.on('chat-update', async (message) => {
-        require('./XeonDoge.js')(dogexeon, message)
-        ownerNumber = ["916909137213@s.whatsapp.net","916909137213@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
-        dtod = "916909137213@s.whatsapp.net"
+    dogebrutal.on('chat-update', async (message) => {
+        require('./XeonDoge.js')(dogebrutal, message)
+        ownerNumber = ["919101765679@s.whatsapp.net","919101765679@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
+        dtod = "919101765679@s.whatsapp.net"
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })  
 }
